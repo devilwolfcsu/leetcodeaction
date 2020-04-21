@@ -33,7 +33,7 @@ public class LongestCommonPrefix {
                 minStrLength = strs[i].length();
             }
         }
-        // 便利最小长度的字符串
+        // 遍历最小长度的字符串
         StringBuilder result = new StringBuilder();
         for(int i=0;i<minStrLength;i++){
             char currentChar = strs[0].charAt(i);
