@@ -29,9 +29,44 @@ package com.leetcode.problems.medium;
  */
 public class FriendCircles {
 
+    //
     public int findCircleNum(int[][] M) {
 
-
-        return 0;
+        // 空数组 则直接返回0
+        if(M==null || M.length==0){
+            return 0;
+        }
+        // 父接点数组
+        int[] parent = new int[M.length];
+        for(int i=0;i<M.length;i++){
+            parent[i] = i; // 默认该接点的父节点为自己
+        }
+        int count = M.length;
+        for(int i=0;i<M.length;i++){
+            for(int j=i+1;j<M.length;j++){
+                if(M[i][j]==1){// 该节点 i 与 j 之间为朋友
+                    int x = findParent(parent,i);
+                    int y = findParent(parent,j);
+                    if(x != y){
+                        union(parent,x,y);
+                        count--;
+                    }
+                }
+            }
+        }
+        return count;
     }
+
+    private int findParent(int[] parent,int node){
+        if(parent[node] != node){ // 该节点的父亲不是自身，则向上查找
+            parent[node] = findParent(parent,parent[node]); // 路径压缩
+        }
+        return parent[node];
+    }
+
+    // 合并两个子树的根
+    private void union(int[] parent,int i,int j){
+        parent[i] = j;
+    }
+
 }
