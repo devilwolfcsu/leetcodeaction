@@ -1,5 +1,7 @@
 package com.leetcode.problems.easy;
 
+import com.leetcode.problems.ListNode;
+
 /**
  * 21. 合并两个有序链表  Merge Two Sorted Lists
  * 将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
@@ -10,14 +12,6 @@ package com.leetcode.problems.easy;
  * Created by zeyuan on 2020/5/31.
  */
 public class MergeTwoSortedLists {
-    /** Definition for singly-linked list. */
-     public class ListNode {
-         int val;
-         ListNode next;
-         ListNode() {}
-         ListNode(int val) { this.val = val; }
-         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 

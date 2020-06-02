@@ -1,5 +1,7 @@
 package com.leetcode.problems.medium;
 
+import com.leetcode.problems.ListNode;
+
 /**
  * 148. 排序链表 Sort List
  * 在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
@@ -16,12 +18,6 @@ package com.leetcode.problems.medium;
  */
 public class SortList {
 
-
-    public class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
-    }
 
     public ListNode sortList(ListNode head) {
 

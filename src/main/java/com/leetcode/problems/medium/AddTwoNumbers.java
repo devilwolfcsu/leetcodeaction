@@ -1,5 +1,7 @@
 package com.leetcode.problems.medium;
 
+import com.leetcode.problems.ListNode;
+
 /**
  * 2. 两数相加 Add Two Numbers
  *
@@ -15,13 +17,6 @@ package com.leetcode.problems.medium;
  */
 public class AddTwoNumbers {
 
-
-
-    public class ListNode {
-        int val;
-        ListNode next;
-         ListNode(int x) { val = x; }
-    }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         /** 进位符 */
