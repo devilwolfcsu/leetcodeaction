@@ -28,54 +28,24 @@ public class LinkedListCycleII {
             return null;
         }
         // 找到环的交点
-        // 将commonNode 当作Y形链表的尾部
-        ListNode rightHead = commonNode.next;
-        ListNode tmp = rightHead;
-        int rightLenght = 0;
-        while(tmp!=commonNode){
-            tmp = tmp.next;
-            rightLenght++;
+        ListNode current = head;
+        while(current!=commonNode){
+            current =  current.next;
+            commonNode = commonNode.next;
         }
-        int leftLenght =0;
-        tmp = head;
-        while(tmp!=commonNode){
-            tmp = tmp.next;
-            leftLenght++;
-        }
-        ListNode leftIndex = head;
-        ListNode rightIndex = rightHead;
-        if(leftLenght>rightLenght){
-            int firstLenght = leftLenght-rightLenght;
-            while(firstLenght>0){
-                leftIndex = leftIndex.next;
-                firstLenght--;
-            }
-        }
-        if(rightLenght>leftLenght){
-            int firstLenght = rightLenght-leftLenght;
-            while(firstLenght>0){
-                rightIndex = rightIndex.next;
-                firstLenght--;
-            }
-        }
-
-        while(rightIndex!=leftIndex){
-            rightIndex = rightIndex.next;
-            leftIndex = leftIndex.next;
-        }
-        return leftIndex;
+        return current;
     }
 
     /** 如果成环则返回换上的一个节点 否则返回空 */
     private ListNode getCommonNode(ListNode head){
         ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode fast = head;
         while(fast!=null&&fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
             if(slow ==fast){
                 return fast;
             }
-            slow = slow.next;
-            fast = fast.next.next;
         }
         return null;
     }
