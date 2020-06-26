@@ -22,4 +22,12 @@ public class BestTimeBuySellStockIITest {
         Assert.assertEquals(bestTimeBuySellStockII.maxProfit(otherStocks),0);
 
     }
+
+    @Test
+    public void maxProfit1(){
+
+        BestTimeBuySellStockII bestTimeBuySellStockII = new BestTimeBuySellStockII();
+        int[] otherStocks ={1,2,4,2,5,7,2,4,9,0};
+        Assert.assertEquals(bestTimeBuySellStockII.maxProfit(otherStocks),15);
+    }
 }
