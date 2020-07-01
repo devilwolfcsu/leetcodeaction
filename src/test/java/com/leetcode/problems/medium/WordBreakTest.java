@@ -27,5 +27,9 @@ public class WordBreakTest {
 
         wordDict = Arrays.asList("aaaa", "aaa");
         Assert.assertEquals(wordBreak.wordBreak("aaaaaaa",wordDict),true);
+
+        wordDict = Arrays.asList("a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa");
+        String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        Assert.assertEquals(wordBreak.wordBreak(s,wordDict),true);
     }
 }
