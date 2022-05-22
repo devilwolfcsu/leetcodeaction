@@ -52,15 +52,16 @@ public class LongestValidParentheses {
                         break;
                     }
                 }
-                //
+                // 向前未找到可匹配的
                 if(currentStart == i){
                     status[i] = -2; // 压栈 -2
                     continue;
                 }
                 // 该区间中是否有别的自增序列
-                //有跨越区间
+                // 有跨越区间
                 // 判断currentStart 前面数字是否大于0
                 // 若为最前面的 则 直接返回区间
+                // 找到最前面了
                 if(currentStart==0){
                     currentSubNums = i-currentStart+1;
                     status[i] = currentSubNums;
@@ -69,6 +70,7 @@ public class LongestValidParentheses {
                     }
                     continue;
                 }
+                // 大于0 ，则表示前面有匹配串
                 if(status[currentStart-1]>0){
                     currentSubNums = i-currentStart + status[currentStart-1]+1;
                     status[i] = currentSubNums;
@@ -77,6 +79,7 @@ public class LongestValidParentheses {
                     }
                     continue;
                 }else{
+                    // 没有，就记录当前串
                     currentSubNums = i-currentStart+1;
                     status[i] = currentSubNums;
                     if(currentSubNums > maxValidNums){
